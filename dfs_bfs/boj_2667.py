@@ -15,12 +15,29 @@ class Danzi:
         return explanation
 
     def add_row(self, row):
+        """
+        Adds row to map
+        :param row: row to add
+        :return: void
+        """
         self.map += row
 
     def is_already_visited(self, point):
+        """
+        Checks whether point is already visited
+        :param point: point to check
+        :return: Boolean - True if visited, False if not
+        """
         return self.visited[point]
 
     def is_out_of_range(self, point, horizontal=False, row_num=-1):
+        """
+        Checks for out-of-range-exception : Used to check adjacent(left, right, up, down) points
+        :param point: Point to check
+        :param horizontal: Whether move is horizontal
+        :param row_num: number of row
+        :return: Boolean
+        """
         if point < 0 or point >= self.dimension ** 2:
             return True
         elif horizontal is True and row_num != point // self.dimension:
@@ -29,6 +46,11 @@ class Danzi:
             return False
 
     def search(self, start_point):
+        """
+        BFS
+        :param start_point: start point to begin BFS
+        :return: result of bfs - list. First element is number of houses, and second is maximum house number.
+        """
         num_houses = 0
         max_visit_num = 0
         queue = [start_point]
@@ -46,7 +68,11 @@ class Danzi:
 
     def add_adjacent_points(self, queue, current_point):
         """
-        으 핵똥코드..
+        으 핵똥코드;;
+        adds adjacent points to visit queue
+        :param queue: queue to enqueue
+        :param current_point: current location of BFS
+        :return: void
         """
         # Adjacent to right
         if self.is_out_of_range(current_point + 1, True, current_point // self.dimension) is False:
@@ -68,6 +94,10 @@ class Danzi:
                     queue.append(current_point - self.dimension)
 
     def enumerate(self):
+        """
+        Final enumeration function. Sets up BFS, and packs result
+        :return: final, enumerated list. First element is total danzi amount, and next followings are numbers of houses
+        """
         enumerated_result = list()
         point = 0
         while point != self.dimension ** 2:
@@ -81,6 +111,11 @@ class Danzi:
 
     @staticmethod
     def print_result(result):
+        """
+        Prints final result
+        :param result: Result to print
+        :return: void
+        """
         print(len(result))
         for element in result:
             print(element)
