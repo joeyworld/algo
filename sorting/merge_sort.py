@@ -29,7 +29,7 @@ def merge(left, right):
 
 
 if __name__ == '__main__':
-    A = [37, 10, 22, 30, 35, 13, 25, 24, 9]
-    print(A)
-    A = merge_sort(A)
-    print(A)
+    sample = [int(number) for number in input().split(' ')]
+    print(sample)
+    sample = merge_sort(sample)
+    print(sample)
