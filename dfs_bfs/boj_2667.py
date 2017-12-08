@@ -9,9 +9,10 @@ class Danzi:
         map_representation = ''
         i = 0
         while i < self.dimension ** 2:
-            map_representation += (str(self.map[i:i+self.dimension]) + '\n')
+            map_representation += (str(self.map[i:i + self.dimension]) + '\n')
             i += self.dimension
-        explanation = 'Dimension = {}\nMap:\n{}\nvisited = {}\n'.format(self.dimension, map_representation, self.visited)
+        explanation = 'Dimension = {}\nMap:\n{}\nvisited = {}\n'.format(
+            self.dimension, map_representation, self.visited)
         return explanation
 
     def add_row(self, row):

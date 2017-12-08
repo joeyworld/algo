@@ -2,6 +2,7 @@ class Graph:
     """
     Class Graph : Graph data structure implemented by python
     """
+
     def __init__(self, num_vertex, num_edge):
         self.graph = dict()
         self.num_vertex = num_vertex
@@ -72,7 +73,8 @@ class Graph:
             print(previous_visit, end=' ')
             del queue[0]
             visited[previous_visit - 1] = True
-            queue += [v for v in self.graph[previous_visit] if v not in queue and visited[v - 1] is False]
+            queue += [v for v in self.graph[previous_visit]
+                      if v not in queue and visited[v - 1] is False]
 
 
 if __name__ == '__main__':
