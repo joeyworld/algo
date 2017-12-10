@@ -5,7 +5,7 @@ def solve(num_words, words):
 
 def check_group(word):
     n = len(word)
-    prev = list()
+    prev = [word[0]]
     for i in range(n - 1):
         if word[i] != word[i + 1]:
             if word[i + 1] in prev:
