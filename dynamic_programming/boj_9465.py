@@ -33,6 +33,5 @@ if __name__ == '__main__':
 
         previous_answers = [[0] * 100000 for _ in range(3)]
 
-
     for answer in answers:
         print(answer)
