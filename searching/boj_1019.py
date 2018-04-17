@@ -19,7 +19,8 @@ def find_digit(start, end):
         start_endpoint = start % divisor
         end_endpoint = end % divisor
 
-        print('{}의 자리 : {} 에서 {} 까지'.format(divisor // 10, start_endpoint, end_endpoint))
+        print('{}의 자리 : {} 에서 {} 까지'.format(
+            divisor // 10, start_endpoint, end_endpoint))
 
 
 def split_number(limit, digit):

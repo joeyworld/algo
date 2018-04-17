@@ -20,6 +20,7 @@ def unzip(compressed, index):
 
     return (total, index)
 
+
 if __name__ == '__main__':
     sentence = input()
     print(unzip(sentence, 0)[0])

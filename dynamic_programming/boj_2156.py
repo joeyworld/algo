@@ -1,6 +1,7 @@
 previous = [[0 for _ in range(10000)] for _ in range(3)]
 # 다음 두개다 / 앞에꺼만 / 뒤에꺼만
 
+
 def solve(wine, n, total):
     if n == total:
         previous[0][n - 1] = wine[n - 1]
@@ -20,13 +21,12 @@ def solve(wine, n, total):
         previous[2][n - 1] = wine[n] + wine[n + 1]
         return
 
-    previous[0][n - 1] = wine[n - 1] + wine[n] + max(previous[0][n + 2], previous[1][n + 2], previous[2][n + 2])
+    previous[0][n - 1] = wine[n - 1] + wine[n] + \
+        max(previous[0][n + 2], previous[1][n + 2], previous[2][n + 2])
     previous[1][n - 1] = wine[n - 1] + \
         max(previous[0][n + 1], previous[1][n + 1], previous[2][n + 1])
     previous[2][n - 1] = max(previous[0][n],
                              previous[1][n], previous[2][n])
-
-
 
 
 if __name__ == '__main__':
