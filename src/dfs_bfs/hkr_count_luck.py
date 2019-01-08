@@ -1,16 +1,3 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-# Complete the countLuck function below.
-
-# matrix 는 배열, k는 예측
-
-
 def dfs(matrix, current_point, end_point, visited, count):
     result = []
     row = len(matrix)
@@ -35,13 +22,11 @@ def dfs(matrix, current_point, end_point, visited, count):
     if north >= 0 and matrix[north][x] in '.*' and not visited[north][x]:
         result.append(dfs(matrix, [north, x], end_point, visited, count))
 
-    if result and len(result) > 1:
+    if result:
         for value in result:
             if value[1]:
                 return value[0] + 1, True
         return count, False
-    elif result:
-        return result[0]
     else:
         return count, False
 
@@ -73,21 +58,3 @@ def countLuck(matrix, k):
     start_point, end_point = find_start_and_end(matrix)
     count, _ = dfs(matrix, start_point, end_point, visited, 0)
     return 'Impressed' if count == k else 'Oops!'
-
-
-if __name__ == '__main__':
-    t = int(input())
-
-    for t_itr in range(t):
-        nm = input().split()
-        n = int(nm[0])
-        m = int(nm[1])
-        matrix = []
-
-        for _ in range(n):
-            matrix_item = input()
-            matrix.append(matrix_item)
-
-        k = int(input())
-        result = countLuck(matrix, k)
-        print(result)
