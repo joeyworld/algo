@@ -9,7 +9,7 @@ for _ in range(E):
 
 dq = deque()
 start, end = map(int, input().split())
-distance = [dict() for j in range(N+1)]
+distance = [dict() for j in range(N + 1)]
 dq.append((start, 0))
 
 distance[start][0] = 0
