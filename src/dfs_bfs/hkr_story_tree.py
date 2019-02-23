@@ -60,7 +60,7 @@ def solve(n, graph, g, k, guesses):
             correct_to_wrong += 1
 
         # 기존 틀린 예측이 맞아짐
-        while (wrong_idx < n_wrong and rel[1] == wrong[wrong_idx][0]):
+        while wrong_idx < n_wrong and rel[1] == wrong[wrong_idx][0]:
             if rel[0] == wrong[wrong_idx][1]:
                 wrong_idx += 1
                 wrong_to_correct += 1
